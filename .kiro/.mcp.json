@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "docker": {
+      "command": "uvx",
+      "args": ["mcp-docker"],
+      "env": {},
+      "disabled": false
+    },
+    "postman": {
+      "command": "uvx",
+      "args": ["mcp-postman"],
+      "env": {
+        "POSTMAN_API_KEY": "<your-postman-api-key>"
+      },
+      "disabled": false
+    }
+  }
+}

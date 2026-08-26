@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Verify compilation on shared schema change",
+      "trigger": "PostFileSave",
+      "description": "When a shared Zod schema file is modified, run typecheck across all workspaces to verify nothing breaks",
+      "matcher": "packages/shared/src/schemas/",
+      "action": {
+        "type": "command",
+        "command": "cd /home/auriga/Auriga/agentic-ai-workshop/ai-adoption-workshop && pnpm turbo run typecheck 2>&1 | tail -20",
+        "timeout": 60
+      }
+    }
+  ]
+}

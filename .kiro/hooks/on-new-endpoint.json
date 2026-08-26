@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "New endpoint checklist",
+      "trigger": "PostFileSave",
+      "description": "When a NestJS controller file is saved, remind to add Swagger decorators, create corresponding frontend API hook, and regenerate OpenAPI spec",
+      "matcher": "\\\\.controller\\\\.ts$",
+      "action": {
+        "type": "agent",
+        "prompt": "A NestJS controller has been modified. Ensure: 1) Every method has @ApiOperation, @ApiResponse, @ApiTags decorators. 2) Request bodies use ZodValidationPipe with shared schemas. 3) Path params use ParseUUIDPipe. 4) A corresponding frontend API function exists in apps/web/src/lib/api.ts. 5) The OpenAPI spec should be regenerated after all endpoint changes are complete."
+      }
+    }
+  ]
+}

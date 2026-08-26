@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Component test scaffold reminder",
+      "trigger": "PostFileCreate",
+      "description": "When a new React component is created in the components directory, remind to create a co-located test file",
+      "matcher": "apps/web/src/components/.*\\\\.tsx$",
+      "action": {
+        "type": "agent",
+        "prompt": "A new React component file has been created. Consider: 1) Creating a co-located test file (*.test.tsx) for this component. 2) Ensure the component uses proper accessibility attributes (aria-labels, roles). 3) If this is a reusable UI component, export it from the components barrel file."
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Prisma schema change reminder",
+      "trigger": "PostFileSave",
+      "description": "When the Prisma schema file is modified, remind to regenerate the Prisma client and run migrations",
+      "matcher": "schema\\\\.prisma$",
+      "action": {
+        "type": "agent",
+        "prompt": "The Prisma schema has been modified. Remember to: 1) Run `pnpm --filter @taskflow/api prisma generate` to regenerate the Prisma client. 2) Run `pnpm --filter @taskflow/api prisma migrate dev --name <description>` to create a new migration. 3) Verify that the shared Zod schemas in `packages/shared/src/schemas/` still match the updated Prisma models. 4) Update the seed script if new fields were added."
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Sync Postman collection",
+      "trigger": "PostFileSave",
+      "description": "When the OpenAPI spec is regenerated, remind to sync the Postman collection",
+      "matcher": "openapi\\\\.json$",
+      "action": {
+        "type": "agent",
+        "prompt": "The OpenAPI spec has been regenerated. Remember to: 1) Convert the updated spec to a Postman collection using the conversion script. 2) Update postman/taskflow.collection.json. 3) Verify all endpoints are documented with proper request/response examples."
+      }
+    }
+  ]
+}
